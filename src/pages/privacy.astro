@@ -5,85 +5,178 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="隐私政策 · 说说输入法" description="说说输入法隐私政策 - 我们承诺保护您的隐私，不收集任何个人信息和输入内容。">
   <div class="px-4 lg:px-8 mx-auto sm:px-6 max-w-3xl py-16 sm:py-20">
     <div class="flex flex-col gap-4 text-center pb-16 sm:pb-20">
-      <h1 class="font-medium tracking-tight sm:text-5xl text-4xl">
-        说说输入法隐私政策
+      <h1 class="font-medium tracking-tight sm:text-5xl text-4xl" x-text="$store.i18n.t('privacy.title')">
       </h1>
-      <p class="text-base text-primary-950/60 dark:text-primary-200/60">
-        最后修改时间：2025年11月15日
+      <p class="text-base text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('privacy.lastModified')">
       </p>
     </div>
     
     <div class="dark:prose-invert max-w-none prose prose-primary">
-      <p class="mb-6 text-lg">
-        欢迎使用 <strong>说说输入法</strong>（以下简称"本软件"或"我们"）。本软件由 <strong>探未（武汉）科技有限公司</strong>（以下简称"本公司"）开发和运营。我们非常重视您的隐私保护。本隐私政策将向您说明在使用软件过程中，我们如何处理与保护您的信息。请在使用前仔细阅读并理解本政策内容。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        一、我们收集的信息范围
-      </h2>
-      <p class="mb-4">
-        说说输入法是一款 <strong>在本地运行的 AI 语音输入法</strong>，我们始终坚持最小化数据采集原则。为了改进产品体验、提升稳定性，我们仅会收集以下 <strong>匿名、非个人化统计信息</strong>：
-      </p>
-      <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
-        <li>软件版本信息</li>
-        <li>功能使用频次、活跃度等整体统计</li>
-        <li>匿名化的崩溃日志与错误信息</li>
-      </ul>
-      <p class="mb-6">
-        这些信息仅用于改善软件性能，不涉及任何可识别个人身份的数据。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        二、我们不会收集的任何信息
-      </h2>
-      <p class="mb-4">
-        为了最大程度保护您的隐私，我们郑重承诺：
-      </p>
-      <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
-        <li><strong>不会收集、保存、上传或分析</strong> 您在说说输入法中的任何语音输入、文本输入或其他输入内容；</li>
-        <li><strong>不会读取、收集或传输</strong> 您填写的任何大模型 API Key；</li>
-        <li><strong>不会获取或处理</strong> 任何对话内容、提示词、AI 生成内容；</li>
-        <li><strong>不会收集</strong> 任何可识别个人身份的敏感信息（包括姓名、手机号、邮箱、设备唯一标识符、IP 等）。</li>
-      </ul>
-      <p class="mb-6">
-        所有涉及输入处理的操作均在您的本地设备完成，不会经过我们的服务器。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        三、关于第三方大模型服务
-      </h2>
-      <p class="mb-4">
-        说说输入法支持您使用自定义的大模型服务 API Key（例如 DeepSeek 等）来完成模型调用。
-      </p>
-      <p class="mb-4">
-        <strong>请注意：</strong>
-      </p>
-      <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
-        <li>API Key 只会保存在您的本地设备中；</li>
-        <li>所有模型调用由您选择的第三方服务商直接处理；</li>
-        <li>模型对话、语音内容、文本内容均由第三方服务商负责，与说说输入法无关；</li>
-        <li>我们不进行中转、不存储、不分析这些内容。</li>
-      </ul>
-      <p class="mb-6">
-        您需要自行阅读并遵守所选第三方模型服务的隐私政策 and 使用条款。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        四、协议更新
-      </h2>
-      <p class="mb-4">
-        随着软件功能的发展，我们可能会对本隐私政策进行适当调整。若有重要变更，我们将通过合适方式提醒您。
-      </p>
-      <p class="mb-6">
-        政策更新后继续使用本软件，即视为您接受更新后的内容。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        五、联系我们
-      </h2>
-      <p class="mb-6">
-        如您对本政策或说说输入法的隐私保护方式有任何疑问，欢迎随时联系我们。我们将为您提供协助。
-      </p>
+      <!-- Intro -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <p class="mb-6 text-lg">
+          Welcome to <strong>Shuo</strong> (hereinafter "this software" or "we"). This software is developed and operated by <strong>Tanwei (Wuhan) Technology Co., Ltd.</strong> (hereinafter "the Company"). We take your privacy protection very seriously. This privacy policy explains how we handle and protect your information when using the software. Please read and understand this policy carefully before use.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <p class="mb-6 text-lg">
+          欢迎使用 <strong>说说输入法</strong>（以下简称"本软件"或"我们"）。本软件由 <strong>探未（武汉）科技有限公司</strong>（以下简称"本公司"）开发和运营。我们非常重视您的隐私保护。本隐私政策将向您说明在使用软件过程中，我们如何处理与保护您的信息。请在使用前仔细阅读并理解本政策内容。
+        </p>
+      </div>
+
+      <!-- Section 1 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          1. Information We Collect
+        </h2>
+        <p class="mb-4">
+          Shuo is an <strong>AI voice input method that runs locally</strong>. We adhere to the principle of minimal data collection. To improve product experience and stability, we only collect the following <strong>anonymous, non-personal statistical information</strong>:
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>Software version information</li>
+          <li>Feature usage frequency, activity statistics</li>
+          <li>Anonymized crash logs and error information</li>
+        </ul>
+        <p class="mb-6">
+          This information is only used to improve software performance and does not involve any personally identifiable data.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          一、我们收集的信息范围
+        </h2>
+        <p class="mb-4">
+          说说输入法是一款 <strong>在本地运行的 AI 语音输入法</strong>，我们始终坚持最小化数据采集原则。为了改进产品体验、提升稳定性，我们仅会收集以下 <strong>匿名、非个人化统计信息</strong>：
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>软件版本信息</li>
+          <li>功能使用频次、活跃度等整体统计</li>
+          <li>匿名化的崩溃日志与错误信息</li>
+        </ul>
+        <p class="mb-6">
+          这些信息仅用于改善软件性能，不涉及任何可识别个人身份的数据。
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          2. Information We Never Collect
+        </h2>
+        <p class="mb-4">
+          To protect your privacy to the greatest extent, we solemnly promise:
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li><strong>Never collect, store, upload, or analyze</strong> any voice input, text input, or other input content in Shuo;</li>
+          <li><strong>Never read, collect, or transmit</strong> any LLM API keys you enter;</li>
+          <li><strong>Never obtain or process</strong> any conversation content, prompts, or AI-generated content;</li>
+          <li><strong>Never collect</strong> any identifiable personal information (including name, phone, email, device identifiers, IP, etc.).</li>
+        </ul>
+        <p class="mb-6">
+          All input processing operations are completed on your local device and do not pass through our servers.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          二、我们不会收集的任何信息
+        </h2>
+        <p class="mb-4">
+          为了最大程度保护您的隐私，我们郑重承诺：
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li><strong>不会收集、保存、上传或分析</strong> 您在说说输入法中的任何语音输入、文本输入或其他输入内容；</li>
+          <li><strong>不会读取、收集或传输</strong> 您填写的任何大模型 API Key；</li>
+          <li><strong>不会获取或处理</strong> 任何对话内容、提示词、AI 生成内容；</li>
+          <li><strong>不会收集</strong> 任何可识别个人身份的敏感信息（包括姓名、手机号、邮箱、设备唯一标识符、IP 等）。</li>
+        </ul>
+        <p class="mb-6">
+          所有涉及输入处理的操作均在您的本地设备完成，不会经过我们的服务器。
+        </p>
+      </div>
+
+      <!-- Section 3 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          3. Third-Party LLM Services
+        </h2>
+        <p class="mb-4">
+          Shuo supports using custom LLM service API keys (such as DeepSeek, etc.) for model calls.
+        </p>
+        <p class="mb-4">
+          <strong>Please note:</strong>
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>API keys are only stored on your local device;</li>
+          <li>All model calls are handled directly by your chosen third-party provider;</li>
+          <li>Model conversations, voice content, and text content are all handled by the third-party provider, unrelated to Shuo;</li>
+          <li>We do not relay, store, or analyze this content.</li>
+        </ul>
+        <p class="mb-6">
+          You need to read and comply with the privacy policy and terms of use of your chosen third-party model service.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          三、关于第三方大模型服务
+        </h2>
+        <p class="mb-4">
+          说说输入法支持您使用自定义的大模型服务 API Key（例如 DeepSeek 等）来完成模型调用。
+        </p>
+        <p class="mb-4">
+          <strong>请注意：</strong>
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>API Key 只会保存在您的本地设备中；</li>
+          <li>所有模型调用由您选择的第三方服务商直接处理；</li>
+          <li>模型对话、语音内容、文本内容均由第三方服务商负责，与说说输入法无关；</li>
+          <li>我们不进行中转、不存储、不分析这些内容。</li>
+        </ul>
+        <p class="mb-6">
+          您需要自行阅读并遵守所选第三方模型服务的隐私政策和使用条款。
+        </p>
+      </div>
+
+      <!-- Section 4 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          4. Policy Updates
+        </h2>
+        <p class="mb-4">
+          As the software develops, we may make appropriate adjustments to this privacy policy. For important changes, we will notify you through appropriate means.
+        </p>
+        <p class="mb-6">
+          Continued use of this software after policy updates constitutes acceptance of the updated content.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          四、协议更新
+        </h2>
+        <p class="mb-4">
+          随着软件功能的发展，我们可能会对本隐私政策进行适当调整。若有重要变更，我们将通过合适方式提醒您。
+        </p>
+        <p class="mb-6">
+          政策更新后继续使用本软件，即视为您接受更新后的内容。
+        </p>
+      </div>
+
+      <!-- Section 5 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          5. Contact Us
+        </h2>
+        <p class="mb-6">
+          If you have any questions about this policy or Shuo's privacy protection methods, please feel free to contact us. We will provide assistance.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          五、联系我们
+        </h2>
+        <p class="mb-6">
+          如您对本政策或说说输入法的隐私保护方式有任何疑问，欢迎随时联系我们。我们将为您提供协助。
+        </p>
+      </div>
     </div>
   </div>
 </Layout>

@@ -7,12 +7,8 @@ import Layout from '../layouts/Layout.astro';
     <div class="px-4 lg:max-w-7xl lg:px-8 max-w-2xl mx-auto sm:px-6">
       <!-- Header -->
       <div class="flex flex-col gap-4 text-center pb-16 sm:pb-20">
-        <h1 class="font-medium tracking-tight sm:text-5xl text-4xl">
-          联系我们
-        </h1>
-        <p class="text-base text-primary-950/60 dark:text-primary-200/60 max-w-2xl mx-auto">
-          有问题或建议？欢迎通过以下方式联系我们
-        </p>
+        <h1 class="font-medium tracking-tight sm:text-5xl text-4xl" x-text="$store.i18n.t('contact.title')"></h1>
+        <p class="text-base text-primary-950/60 dark:text-primary-200/60 max-w-2xl mx-auto" x-text="$store.i18n.t('contact.subtitle')"></p>
       </div>
       
       <!-- Contact Methods -->
@@ -27,15 +23,13 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
               <div>
-                <h3 class="font-medium dark:text-primary-200 text-primary-950 group-hover:underline">GitHub Issues</h3>
-                <p class="text-sm text-primary-950/60 dark:text-primary-200/60">提交 Bug 报告或功能建议</p>
+                <h3 class="font-medium dark:text-primary-200 text-primary-950 group-hover:underline" x-text="$store.i18n.t('contact.issuesTitle')"></h3>
+                <p class="text-sm text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('contact.issuesSub')"></p>
               </div>
             </div>
-            <p class="text-sm dark:text-primary-200/70 text-primary-950/70">
-              在 GitHub 上提交 Issue，我们会尽快回复。这是最直接的反馈方式。
-            </p>
+            <p class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('contact.issuesDesc')"></p>
             <div class="flex items-center gap-1.5 text-sm text-primary-600 dark:text-primary-400 mt-auto">
-              <span>前往 GitHub</span>
+              <span x-text="$store.i18n.t('contact.issuesLink')"></span>
               <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
@@ -51,15 +45,13 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
               <div>
-                <h3 class="font-medium dark:text-primary-200 text-primary-950 group-hover:underline">GitHub Discussions</h3>
-                <p class="text-sm text-primary-950/60 dark:text-primary-200/60">参与社区讨论</p>
+                <h3 class="font-medium dark:text-primary-200 text-primary-950 group-hover:underline" x-text="$store.i18n.t('contact.discussionsTitle')"></h3>
+                <p class="text-sm text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('contact.discussionsSub')"></p>
               </div>
             </div>
-            <p class="text-sm dark:text-primary-200/70 text-primary-950/70">
-              在 Discussions 中提问、分享想法、交流使用心得。这里是社区交流的地方。
-            </p>
+            <p class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('contact.discussionsDesc')"></p>
             <div class="flex items-center gap-1.5 text-sm text-primary-600 dark:text-primary-400 mt-auto">
-              <span>参与讨论</span>
+              <span x-text="$store.i18n.t('contact.discussionsLink')"></span>
               <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
@@ -75,15 +67,13 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
               <div>
-                <h3 class="font-medium dark:text-primary-200 text-primary-950 group-hover:underline">邮件联系</h3>
+                <h3 class="font-medium dark:text-primary-200 text-primary-950 group-hover:underline" x-text="$store.i18n.t('contact.emailTitle')"></h3>
                 <p class="text-sm text-primary-950/60 dark:text-primary-200/60">support@tanwei.co</p>
               </div>
             </div>
-            <p class="text-sm dark:text-primary-200/70 text-primary-950/70">
-              对于商务合作或其他问题，欢迎通过邮件联系我们。
-            </p>
+            <p class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('contact.emailDesc')"></p>
             <div class="flex items-center gap-1.5 text-sm text-primary-600 dark:text-primary-400 mt-auto">
-              <span>发送邮件</span>
+              <span x-text="$store.i18n.t('contact.emailLink')"></span>
               <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
@@ -99,15 +89,13 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
               <div>
-                <h3 class="font-medium dark:text-primary-200 text-primary-950 group-hover:underline">微信公众号</h3>
-                <p class="text-sm text-primary-950/60 dark:text-primary-200/60">扫码关注获取最新动态</p>
+                <h3 class="font-medium dark:text-primary-200 text-primary-950 group-hover:underline" x-text="$store.i18n.t('contact.wechatTitle')"></h3>
+                <p class="text-sm text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('contact.wechatSub')"></p>
               </div>
             </div>
-            <p class="text-sm dark:text-primary-200/70 text-primary-950/70">
-              关注说说输入法微信公众号，获取最新更新和动态。
-            </p>
+            <p class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('contact.wechatDesc')"></p>
             <div class="flex items-center gap-1.5 text-sm text-primary-600 dark:text-primary-400 mt-auto">
-              <span>查看二维码</span>
+              <span x-text="$store.i18n.t('contact.wechatLink')"></span>
               <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
@@ -121,7 +109,7 @@ import Layout from '../layouts/Layout.astro';
             <svg class="h-5 w-5 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
               <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
-            <span class="text-sm dark:text-primary-200/70 text-primary-950/70">我们通常在 24-48 小时内回复</span>
+            <span class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('contact.responseTime')"></span>
           </div>
         </div>
       </div>

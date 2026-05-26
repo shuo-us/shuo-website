@@ -9,15 +9,15 @@ interface Props {
 }
 
 const {
-  title = "说说输入法，开源本地语音输入法",
-  description = "说说输入法，开源、本地优先的语音输入法。不绑定供应商，核心能力本地完成，隐私友好。支持 macOS 和 Windows。",
-  keywords = "说说输入法,语音输入法,本地语音,AI输入法,开源输入法,macOS,Windows",
+  title = "Shuo - Open Source Local Voice Input Method",
+  description = "Shuo, an open-source, local-first voice input method. No vendor lock-in, core capabilities run locally. Privacy-friendly. Supports macOS and Windows.",
+  keywords = "Shuo,voice input,local voice,AI input method,open source input method,macOS,Windows",
   canonical = "https://shuo.us/"
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html :class="{ 'dark': $store.theme.isDark }" lang="zh-CN" x-data>
+<html :class="{ 'dark': $store.theme.isDark }" :lang="$store.i18n.lang === 'zh' ? 'zh-CN' : 'en'" x-data>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,8 +41,8 @@ const {
     <meta content={title} property="og:title" />
     <meta content={description} property="og:description" />
     <meta content="/logo.png" property="og:image" />
-    <meta content="说说输入法" property="og:site_name" />
-    <meta content="zh_CN" property="og:locale" />
+    <meta content="Shuo" property="og:site_name" />
+    <meta content="en_US" property="og:locale" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content={title} name="twitter:title" />
     <meta content={description} name="twitter:description" />
@@ -78,25 +78,33 @@ const {
       <div class="items-center flex justify-between lg:max-w-7xl lg:px-8 max-w-2xl mx-auto px-4 py-4 sm:px-6">
         <div class="flex">
           <a class="items-center flex gap-3 dark:group-focus-visible:outline-primary-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-950 rounded-md" href="/">
-            <span class="sr-only">说说输入法</span>
-            <img alt="说说输入法" class="w-auto h-8 rounded-lg" src="/logo.png" />
-            <span class="dark:text-primary-200 text-primary-950 font-semibold text-xl">说说输入法</span>
+            <span class="sr-only" x-text="$store.i18n.t('header.brand')">Shuo</span>
+            <img alt="Shuo" class="w-auto h-8 rounded-lg" src="/logo.png" />
+            <span class="dark:text-primary-200 text-primary-950 font-semibold text-xl" x-text="$store.i18n.t('header.brand')">Shuo</span>
           </a>
         </div>
         
         <div class="items-center flex -mr-2 sm:space-x-3 space-x-2">
-          <a class="text-sm font-medium dark:text-primary-200 dark:hover:text-primary-400 text-primary-950 hover:text-primary-600 transition-colors hidden sm:inline-flex" href="/pricing">定价</a>
-          <!-- Platform-aware download button -->
+          <a class="text-base font-medium dark:text-primary-200 dark:hover:text-primary-400 text-primary-950 hover:text-primary-600 transition-colors hidden sm:inline-flex" href="/pricing" x-text="$store.i18n.t('header.pricing')">Pricing</a>
+          <!-- Download button -->
           <a class="items-center justify-center rounded-full font-semibold gap-2 transition bg-primary-900 dark:bg-primary-100 dark:focus-visible:ring-white dark:hover:bg-white dark:text-primary-950 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-900 focus:outline-none hidden hover:bg-primary-800 px-5 py-2.5 shadow-sm sm:inline-flex text-sm text-white" href="https://github.com/shuo-us/shuo/releases/latest" id="header-download-btn">
             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path>
             </svg>
-            <span id="header-download-text">下载</span>
+            <span id="header-download-text" x-text="$store.i18n.t('header.download')">Download</span>
           </a>
+          
+          <!-- Language Toggle -->
+          <button class="items-center justify-center rounded-full inline-flex transition dark:hover:bg-primary-400/10 dark:text-primary-200 focus-visible:ring-2 focus:outline-none h-14 hover:bg-primary-500/10 ring-primary-950 text-primary-950 w-14 gap-1" type="button" @click="$store.i18n.toggle()" aria-label="Toggle language">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="text-xs font-semibold" x-text="$store.i18n.lang === 'en' ? 'EN' : '中'">EN</span>
+          </button>
           
           <!-- Light/Dark Mode Switcher -->
           <button class="items-center justify-center rounded-full inline-flex transition dark:hover:bg-primary-400/10 dark:text-primary-200 focus-visible:ring-2 focus:outline-none h-14 hover:bg-primary-500/10 ring-primary-950 text-primary-950 w-14" type="button" @click="$store.theme.toggle()">
-            <span class="sr-only">Toggle theme mode</span>
+            <span class="sr-only" x-text="$store.i18n.t('header.toggleTheme')">Toggle theme mode</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" :class="{ 'hidden': !($store.theme.isDark) }" x-cloak>
               <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
             </svg>
@@ -105,8 +113,7 @@ const {
             </svg>
           </button>
           
-          <!-- Mobile Menu Toggle Button (Commented out in original site, replicated here for parity) -->
-          <!-- 
+          <!-- Mobile Menu Toggle Button -->
           <button
             type="button"
             class="text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 inline-flex h-14 w-14 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2"
@@ -124,16 +131,17 @@ const {
               <path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"></path>
             </svg>
           </button>
-          -->
         </div>
       </div>
       
-      <!-- Collapsible Mobile Menu (Commented state / controlled via x-show="open") -->
+      <!-- Collapsible Mobile Menu -->
       <div class="max-w-2xl lg:max-w-7xl lg:px-8 mx-auto px-4 sm:px-6" id="website-menu" x-cloak x-collapse x-collapse.duration.500ms x-show="open">
         <div class="grid lg:grid-cols-2 gap-16 grid-cols-1 lg:pt-12 pb-24 pt-6">
           <div class="items-center justify-center dark:bg-primary-400/10 bg-primary-500/10 hidden lg:flex px-6 py-8 rounded-3xl">
             <p class="text-xl dark:text-primary-200/70 text-primary-950/70 italic leading-loose max-w-sm">
-              <span class="font-medium">说说输入法</span> 把语音变成文字，开源、本地优先，隐私由你掌控。
+              <span class="font-medium" x-text="$store.i18n.t('header.brand')">Shuo</span>
+              <span x-show="$store.i18n.lang === 'en'" x-cloak> Turn voice into text. Open source, local-first, privacy in your hands.</span>
+              <span x-show="$store.i18n.lang === 'zh'" x-cloak> 把语音变成文字，开源、本地优先，隐私由你掌控。</span>
             </p>
           </div>
           <nav class="flex flex-col dark:divide-primary-300/10 divide-primary-900/10 divide-y gap-1">
@@ -141,7 +149,7 @@ const {
               <div class="items-center flex dark:group-focus-visible:outline-primary-200 flex-1 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-primary-950 justify-between rounded-3xl">
                 <div class="items-center flex gap-6">
                   <span class="text-xs">01</span>
-                  <span class="group-hover:underline">Home</span>
+                  <span class="group-hover:underline" x-text="$store.i18n.t('mobileMenu.home')">Home</span>
                 </div>
                 <svg class="dark:text-primary-400 text-primary-600 h-6 w-6 sm:h-8 sm:w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path>
@@ -152,7 +160,7 @@ const {
               <div class="items-center flex dark:group-focus-visible:outline-primary-200 flex-1 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-primary-950 justify-between rounded-3xl">
                 <div class="items-center flex gap-6">
                   <span class="text-xs">02</span>
-                  <span class="group-hover:underline">About</span>
+                  <span class="group-hover:underline" x-text="$store.i18n.t('mobileMenu.about')">About</span>
                 </div>
                 <svg class="dark:text-primary-400 text-primary-600 h-6 w-6 sm:h-8 sm:w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path>
@@ -163,7 +171,7 @@ const {
               <div class="items-center flex dark:group-focus-visible:outline-primary-200 flex-1 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-primary-950 justify-between rounded-3xl">
                 <div class="items-center flex gap-6">
                   <span class="text-xs">03</span>
-                  <span class="group-hover:underline">Pricing</span>
+                  <span class="group-hover:underline" x-text="$store.i18n.t('mobileMenu.pricing')">Pricing</span>
                 </div>
                 <svg class="dark:text-primary-400 text-primary-600 h-6 w-6 sm:h-8 sm:w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path>
@@ -174,7 +182,7 @@ const {
               <div class="items-center flex dark:group-focus-visible:outline-primary-200 flex-1 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-primary-950 justify-between rounded-3xl">
                 <div class="items-center flex gap-6">
                   <span class="text-xs">04</span>
-                  <span class="group-hover:underline">Contact</span>
+                  <span class="group-hover:underline" x-text="$store.i18n.t('mobileMenu.contact')">Contact</span>
                 </div>
                 <svg class="dark:text-primary-400 text-primary-600 h-6 w-6 sm:h-8 sm:w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path>
@@ -209,21 +217,19 @@ const {
           <div class="flex flex-col gap-12 lg:flex-row lg:gap-16 flex-1 md:flex-row">
             <div class="flex flex-col gap-6 lg:min-w-[280px]">
               <div class="items-center flex gap-3">
-                <img alt="说说输入法" class="h-10 rounded-lg w-10" src="/logo.png" />
-                <span class="dark:text-primary-200 text-primary-950 text-xl font-bold">说说输入法</span>
+                <img alt="Shuo" class="h-10 rounded-lg w-10" src="/logo.png" />
+                <span class="dark:text-primary-200 text-primary-950 text-xl font-bold" x-text="$store.i18n.t('footer.brand')">Shuo</span>
               </div>
-              <p class="text-sm dark:text-primary-200/70 text-primary-950/70 leading-relaxed max-w-xs">
-                开源、本地优先的语音输入法。不绑定供应商，核心能力本地完成。
-              </p>
+              <p class="text-sm dark:text-primary-200/70 text-primary-950/70 leading-relaxed max-w-xs" x-text="$store.i18n.t('footer.desc')">Open source, local-first voice input method.</p>
             </div>
             
             <div class="grid gap-8 grid-cols-1 lg:gap-12 lg:grid-cols-3 sm:grid-cols-2">
               <div class="flex flex-col gap-4">
-                <h3 class="text-sm dark:text-primary-200 text-primary-950 font-semibold tracking-wider uppercase">社交媒体</h3>
+                <h3 class="text-sm dark:text-primary-200 text-primary-950 font-semibold tracking-wider uppercase" x-text="$store.i18n.t('footer.social')">Social Media</h3>
                 <ul class="flex flex-col gap-2.5" role="list">
                   <li>
                     <button class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors cursor-pointer" type="button" aria-controls="wechat-service-qr-modal" aria-haspopup="dialog" data-modal-target="wechat-service-qr-modal">
-                      <span class="group-hover:underline">微信公众号</span>
+                      <span class="group-hover:underline" x-text="$store.i18n.t('footer.wechat')">WeChat</span>
                     </button>
                   </li>
                   <li>
@@ -270,11 +276,11 @@ const {
               </div>
               
               <div class="flex flex-col gap-4">
-                <h3 class="text-sm dark:text-primary-200 text-primary-950 font-semibold tracking-wider uppercase">资源</h3>
+                <h3 class="text-sm dark:text-primary-200 text-primary-950 font-semibold tracking-wider uppercase" x-text="$store.i18n.t('footer.resources')">Resources</h3>
                 <ul class="flex flex-col gap-2.5" role="list">
                   <li>
                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo/issues" rel="noopener noreferrer" target="_blank">
-                      <span class="group-hover:underline">用户反馈</span>
+                      <span class="group-hover:underline" x-text="$store.i18n.t('footer.feedback')">Feedback</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
                       </svg>
@@ -282,7 +288,7 @@ const {
                   </li>
                   <li>
                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo/projects" rel="noopener noreferrer" target="_blank">
-                      <span class="group-hover:underline">产品路线图</span>
+                      <span class="group-hover:underline" x-text="$store.i18n.t('footer.roadmap')">Roadmap</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
                       </svg>
@@ -290,7 +296,7 @@ const {
                   </li>
                   <li>
                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo/releases" rel="noopener noreferrer" target="_blank">
-                      <span class="group-hover:underline">更新日志</span>
+                      <span class="group-hover:underline" x-text="$store.i18n.t('footer.changelog')">Changelog</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
                       </svg>
@@ -298,7 +304,7 @@ const {
                   </li>
                   <li>
                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo/wiki" rel="noopener noreferrer" target="_blank">
-                      <span class="group-hover:underline">帮助中心</span>
+                      <span class="group-hover:underline" x-text="$store.i18n.t('footer.helpCenter')">Help Center</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
                       </svg>
@@ -308,16 +314,16 @@ const {
               </div>
               
               <div class="flex flex-col gap-4">
-                <h3 class="text-sm dark:text-primary-200 text-primary-950 font-semibold tracking-wider uppercase">协议</h3>
+                <h3 class="text-sm dark:text-primary-200 text-primary-950 font-semibold tracking-wider uppercase" x-text="$store.i18n.t('footer.legal')">Legal</h3>
                 <ul class="flex flex-col gap-2.5" role="list">
                   <li>
                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="/privacy">
-                      <span class="group-hover:underline">隐私政策</span>
+                      <span class="group-hover:underline" x-text="$store.i18n.t('footer.privacy')">Privacy Policy</span>
                     </a>
                   </li>
                   <li>
                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="/terms">
-                      <span class="group-hover:underline">服务条款</span>
+                      <span class="group-hover:underline" x-text="$store.i18n.t('footer.terms')">Terms of Service</span>
                     </a>
                   </li>
                 </ul>
@@ -327,19 +333,13 @@ const {
           
           <div class="flex justify-center lg:items-start lg:justify-end">
             <div class="items-center flex flex-col gap-3">
-              <img alt="企业微信用户群二维码" class="shadow-lg dark:ring-primary-200/10 h-40 ring-1 ring-primary-900/10 rounded-xl w-40" src="/wechat-qr.png" />
-              <p class="font-medium text-xs dark:text-primary-200/70 text-center text-primary-950/70">直接向创始人反馈问题</p>
+              <img alt="WeChat QR" class="shadow-lg dark:ring-primary-200/10 h-40 ring-1 ring-primary-900/10 rounded-xl w-40" src="/wechat-qr.png" />
+              <p class="font-medium text-xs dark:text-primary-200/70 text-center text-primary-950/70">support@tanwei.co</p>
               <a class="items-center inline-flex gap-1.5 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 hover:text-primary-950 text-primary-950/70 transition-colors text-xs" href="mailto:support@tanwei.co">
                 <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
                 </svg>
                 <span>support@tanwei.co</span>
-              </a>
-              <a class="items-center inline-flex gap-1.5 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 hover:text-primary-950 text-primary-950/70 transition-colors text-xs" href="tel:027-59764306">
-                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z"></path>
-                </svg>
-                <span>027-59764306</span>
               </a>
             </div>
           </div>
@@ -348,7 +348,7 @@ const {
         <div class="border-t border-primary-900/10 dark:border-primary-200/10 mt-12 pt-8">
           <div class="flex flex-col gap-4">
             <div class="items-center flex justify-center dark:text-primary-200/60 text-primary-950/60 text-sm text-center">
-              <p>开源、本地优先，让每个人都能拥有自己的语音输入法</p>
+              <p x-text="$store.i18n.t('footer.tagline')">Open source, local-first.</p>
             </div>
             <div class="items-center flex justify-center dark:text-primary-200/60 text-primary-950/60 text-sm flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-4">
               <p>
@@ -378,22 +378,22 @@ const {
     <!-- Modal WeChat Dialog -->
     <div class="items-center justify-center inset-0 backdrop-blur-sm bg-black/60 fixed hidden px-4 z-[60]" id="wechat-service-qr-modal" aria-labelledby="wechat-service-qr-title" aria-modal="true" role="dialog">
       <div class="w-full max-w-sm bg-white dark:bg-primary-900 p-6 relative rounded-3xl shadow-2xl">
-        <button class="items-center flex justify-center dark:hover:bg-primary-400/10 hover:bg-primary-500/10 absolute dark:hover:text-primary-200 dark:text-primary-200/45 h-9 hover:text-primary-950 right-4 rounded-full text-primary-950/45 top-4 transition w-9 cursor-pointer" type="button" aria-label="关闭微信公众号二维码弹窗" data-modal-close="wechat-service-qr-modal">
+        <button class="items-center flex justify-center dark:hover:bg-primary-400/10 hover:bg-primary-500/10 absolute dark:hover:text-primary-200 dark:text-primary-200/45 h-9 hover:text-primary-950 right-4 rounded-full text-primary-950/45 top-4 transition w-9 cursor-pointer" type="button" aria-label="Close" data-modal-close="wechat-service-qr-modal">
           <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
           </svg>
         </button>
         <div class="items-center flex flex-col gap-4 pt-2 text-center">
           <div class="items-center flex flex-col gap-2">
-            <h3 class="dark:text-primary-200 text-primary-950 font-semibold text-xl" id="wechat-service-qr-title">关注说说输入法微信公众号</h3>
-            <p class="text-sm dark:text-primary-200/60 text-primary-950/60">微信扫码即可关注服务号，获取最新动态</p>
+            <h3 class="dark:text-primary-200 text-primary-950 font-semibold text-xl" id="wechat-service-qr-title" x-text="$store.i18n.t('footer.wechatModal.title')">Follow Shuo on WeChat</h3>
+            <p class="text-sm dark:text-primary-200/60 text-primary-950/60" x-text="$store.i18n.t('footer.wechatModal.desc')">Scan the QR code to follow.</p>
           </div>
           <div class="overflow-hidden border border-primary-900/10 dark:border-primary-200/10 bg-white rounded-[28px] shadow-lg">
-            <img alt="说说输入法微信公众号二维码" class="w-full h-auto max-w-[280px] object-cover" src="/wechat-qr.png" loading="lazy" />
+            <img alt="WeChat QR" class="w-full h-auto max-w-[280px] object-cover" src="/wechat-qr.png" loading="lazy" />
           </div>
           <div class="space-y-1">
-            <p class="font-medium dark:text-primary-200 text-primary-950 text-base">说说输入法</p>
-            <p class="text-sm dark:text-primary-200/65 text-primary-950/65">微信服务号</p>
+            <p class="font-medium dark:text-primary-200 text-primary-950 text-base" x-text="$store.i18n.t('footer.wechatModal.brand')">Shuo</p>
+            <p class="text-sm dark:text-primary-200/65 text-primary-950/65" x-text="$store.i18n.t('footer.wechatModal.type')">WeChat Service Account</p>
           </div>
         </div>
       </div>
@@ -471,13 +471,15 @@ const {
       document.addEventListener("astro:page-load", initModals);
     </script>
     
-    <!-- Theme Toggle Alpine.js Client Bootloader -->
+    <!-- Theme + i18n Alpine.js Client Bootloader -->
     <script>
       import Alpine from 'alpinejs';
       import collapse from '@alpinejs/collapse';
+      import { translations } from '../i18n/translations';
       
       if (!window.Alpine) {
         Alpine.plugin(collapse);
+        
         Alpine.store('theme', {
           isDark: false,
           init() {
@@ -490,9 +492,31 @@ const {
             localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
           }
         });
+        
+        Alpine.store('i18n', {
+          lang: 'en',
+          init() {
+            this.lang = localStorage.getItem('lang') || 'en';
+          },
+          toggle() {
+            this.lang = this.lang === 'en' ? 'zh' : 'en';
+            localStorage.setItem('lang', this.lang);
+          },
+          t(key) {
+            const keys = key.split('.');
+            let result = translations[this.lang];
+            for (const k of keys) {
+              if (result && typeof result === 'object' && k in result) {
+                result = result[k];
+              } else {
+                return key;
+              }
+            }
+            return result;
+          }
+        });
+        
         window.Alpine = Alpine;
-        // The astro alpinejs integration will call Alpine.start() automatically,
-        // so we don't need to call it here. We just register our store and plugins!
       }
     </script>
   </body>

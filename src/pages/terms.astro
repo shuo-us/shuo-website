@@ -5,123 +5,270 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="服务条款 · 说说输入法" description="说说输入法服务条款 - 探未（武汉）科技有限公司软件使用许可与服务协议。">
   <div class="px-4 lg:px-8 mx-auto sm:px-6 max-w-3xl py-16 sm:py-20">
     <div class="flex flex-col gap-4 text-center pb-16 sm:pb-20">
-      <h1 class="font-medium tracking-tight sm:text-5xl text-4xl">
-        说说输入法服务条款
+      <h1 class="font-medium tracking-tight sm:text-5xl text-4xl" x-text="$store.i18n.t('terms.title')">
       </h1>
-      <p class="text-base text-primary-950/60 dark:text-primary-200/60">
-        最后修改时间：2025年11月15日
+      <p class="text-base text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('terms.lastModified')">
       </p>
     </div>
     
     <div class="dark:prose-invert max-w-none prose prose-primary">
-      <p class="mb-6 text-lg">
-        欢迎使用 <strong>说说输入法</strong>（以下简称"本软件"或"我们"）。本软件由 <strong>探未（武汉）科技有限公司</strong>（以下简称"本公司"）开发和运营。在使用本软件之前，请您仔细阅读并充分理解本服务条款的全部内容。您下载、安装或使用本软件，即表示您已阅读、理解并同意接受本条款 of 约束。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        一、服务说明
-      </h2>
-      <p class="mb-4">
-        说说输入法是一款 <strong>本地优先的 AI 语音输入法</strong>，旨在为用户提供高效、便捷的语音输入服务。
-      </p>
-      <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
-        <li>本软件支持在 macOS 和 Windows 系统上运行；</li>
-        <li>本软件提供本地语音识别功能，并支持可选的 AI 纠错功能；</li>
-        <li>用户可以选择是否开启 AI 纠错，并自行配置第三方大模型服务的 API Key；</li>
-        <li>本软件会持续进行功能优化和版本更新。</li>
-      </ul>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        二、用户权利与义务
-      </h2>
-      <p class="mb-4">
-        <strong>您享有以下权利：</strong>
-      </p>
-      <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
-        <li>免费下载、安装和使用本软件；</li>
-        <li>根据使用需求自主配置软件功能；</li>
-        <li>随时向我们反馈问题和建议；</li>
-        <li>随时停止使用并卸载本软件。</li>
-      </ul>
-      <p class="mb-4">
-        <strong>您需要遵守以下义务：</strong>
-      </p>
-      <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
-        <li>不得将本软件用于任何违法、违规或侵犯他人权益的目的；</li>
-        <li>不得对本软件进行反向工程、反编译、破解或其他试图获取源代码的行为；</li>
-        <li>不得利用本软件传播病毒、恶意代码或其他有害程序；</li>
-        <li>妥善保管自己的 API Key 等敏感信息，因泄露造成的损失由用户自行承担。</li>
-      </ul>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        三、知识产权
-      </h2>
-      <p class="mb-6">
-        本软件及其所有相关的知识产权（包括但不限于商标、专利、著作权、商业秘密等）均归本公司所有。未经本公司书面许可，任何个人或组织不得擅自复制、修改、传播、出售本软件或其任何部分。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        四、第三方服务
-      </h2>
-      <p class="mb-4">
-        本软件支持用户接入第三方大模型服务（如 DeepSeek 等）。 <strong>请注意：</strong>
-      </p>
-      <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
-        <li>第三方服务的质量、稳定性、安全性由第三方服务商负责；</li>
-        <li>因使用第三方服务产生的费用、数据安全、隐私保护等问题，由您与第三方服务商自行协商解决；</li>
-        <li>本公司不对第三方服务的可用性、准确性、合法性承担任何责任；</li>
-        <li>您应自行了解并遵守第三方服务商的服务条款和隐私政策。</li>
-      </ul>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        五、免责声明
-      </h2>
-      <p class="mb-4">
-        在法律允许的范围内，本公司对以下情况不承担责任：
-      </p>
-      <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
-        <li>因不可抗力（如自然灾害、政府行为、网络故障等）导致的服务中断或数据丢失；</li>
-        <li>因用户自身原因（如操作不当、设备故障、网络问题等）导致的使用问题；</li>
-        <li>因第三方服务商的原因导致的服务中断、数据泄露或其他损失；</li>
-        <li>用户使用本软件产生的任何间接损失、附带损失或惩罚性赔偿。</li>
-      </ul>
-      <p class="mb-6">
-        本软件按"现状"提供，不提供任何明示或暗示的保证，包括但不限于适销性、特定用途适用性或非侵权性的保证。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        六、隐私保护
-      </h2>
-      <p class="mb-6">
-        我们高度重视用户隐私保护。关于我们如何收集、使用和保护您的信息，请参阅 <a class="dark:text-primary-400 text-primary-600 hover:underline" href="/privacy">《说说输入法隐私政策》</a>。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        七、条款变更
-      </h2>
-      <p class="mb-4">
-        我们保留随时修改本服务条款的权利。条款变更后，我们会通过适当方式通知您（如软件内提示、官网公告等）。
-      </p>
-      <p class="mb-6">
-        如果您不同意变更后的条款，可以选择停止使用本软件。如果您在条款变更后继续使用本软件，即视为您已接受变更后的条款。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        八、法律适用与争议解决
-      </h2>
-      <p class="mb-4">
-        本条款的订立、生效、解释、修订、补充、终止、执行和争议解决均适用中华人民共和国大陆地区法律。
-      </p>
-      <p class="mb-6">
-        如就本条款内容或其执行发生任何争议，双方应友好协商解决；协商不成时，任何一方均可向本公司所在地有管辖权的人民法院提起诉讼。
-      </p>
-      
-      <h2 class="mb-6 font-medium mt-12 text-2xl">
-        九、联系我们
-      </h2>
-      <p class="mb-6">
-        如您对本服务条款有任何疑问或建议，欢迎随时联系我们。我们将为您提供协助。
-      </p>
+      <!-- Intro -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <p class="mb-6 text-lg">
+          Welcome to <strong>Shuo</strong> (hereinafter "this software" or "we"). This software is developed and operated by <strong>Tanwei (Wuhan) Technology Co., Ltd.</strong> (hereinafter "the Company"). Before using this software, please read and fully understand the entire content of these terms of service. By downloading, installing, or using this software, you indicate that you have read, understood, and agreed to be bound by these terms.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <p class="mb-6 text-lg">
+          欢迎使用 <strong>说说输入法</strong>（以下简称"本软件"或"我们"）。本软件由 <strong>探未（武汉）科技有限公司</strong>（以下简称"本公司"）开发和运营。在使用本软件之前，请您仔细阅读并充分理解本服务条款的全部内容。您下载、安装或使用本软件，即表示您已阅读、理解并同意接受本条款的约束。
+        </p>
+      </div>
+
+      <!-- Section 1 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          1. Service Description
+        </h2>
+        <p class="mb-4">
+          Shuo is a <strong>local-first AI voice input method</strong> designed to provide users with efficient and convenient voice input services.
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>This software runs on macOS and Windows systems;</li>
+          <li>Provides local voice recognition with optional AI correction;</li>
+          <li>Users can choose whether to enable AI correction and configure third-party LLM API keys;</li>
+          <li>The software will continue to optimize features and update versions.</li>
+        </ul>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          一、服务说明
+        </h2>
+        <p class="mb-4">
+          说说输入法是一款 <strong>本地优先的 AI 语音输入法</strong>，旨在为用户提供高效、便捷的语音输入服务。
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>本软件支持在 macOS 和 Windows 系统上运行；</li>
+          <li>本软件提供本地语音识别功能，并支持可选的 AI 纠错功能；</li>
+          <li>用户可以选择是否开启 AI 纠错，并自行配置第三方大模型服务的 API Key；</li>
+          <li>本软件会持续进行功能优化和版本更新。</li>
+        </ul>
+      </div>
+
+      <!-- Section 2 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          2. User Rights and Obligations
+        </h2>
+        <p class="mb-4">
+          <strong>You have the following rights:</strong>
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>Free download, installation, and use of this software;</li>
+          <li>Configure software features according to your needs;</li>
+          <li>Provide feedback and suggestions at any time;</li>
+          <li>Stop using and uninstall this software at any time.</li>
+        </ul>
+        <p class="mb-4">
+          <strong>You need to comply with the following obligations:</strong>
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>Do not use this software for any illegal,违规, or rights-infringing purposes;</li>
+          <li>Do not reverse engineer, decompile, crack, or attempt to obtain source code;</li>
+          <li>Do not use this software to spread viruses, malicious code, or other harmful programs;</li>
+          <li>Properly safeguard your API keys and other sensitive information. Losses from leakage are borne by the user.</li>
+        </ul>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          二、用户权利与义务
+        </h2>
+        <p class="mb-4">
+          <strong>您享有以下权利：</strong>
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>免费下载、安装和使用本软件；</li>
+          <li>根据使用需求自主配置软件功能；</li>
+          <li>随时向我们反馈问题和建议；</li>
+          <li>随时停止使用并卸载本软件。</li>
+        </ul>
+        <p class="mb-4">
+          <strong>您需要遵守以下义务：</strong>
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>不得将本软件用于任何违法、违规或侵犯他人权益的目的；</li>
+          <li>不得对本软件进行反向工程、反编译、破解或其他试图获取源代码的行为；</li>
+          <li>不得利用本软件传播病毒、恶意代码或其他有害程序；</li>
+          <li>妥善保管自己的 API Key 等敏感信息，因泄露造成的损失由用户自行承担。</li>
+        </ul>
+      </div>
+
+      <!-- Section 3 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          3. Intellectual Property
+        </h2>
+        <p class="mb-6">
+          All intellectual property rights related to this software (including but not limited to trademarks, patents, copyrights, trade secrets, etc.) belong to the Company. Without written permission, no individual or organization may copy, modify, distribute, or sell this software or any part thereof.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          三、知识产权
+        </h2>
+        <p class="mb-6">
+          本软件及其所有相关的知识产权（包括但不限于商标、专利、著作权、商业秘密等）均归本公司所有。未经本公司书面许可，任何个人或组织不得擅自复制、修改、传播、出售本软件或其任何部分。
+        </p>
+      </div>
+
+      <!-- Section 4 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          4. Third-Party Services
+        </h2>
+        <p class="mb-4">
+          This software supports users connecting to third-party LLM services (such as DeepSeek, etc.). <strong>Please note:</strong>
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>The quality, stability, and security of third-party services are the responsibility of the third-party provider;</li>
+          <li>Costs, data security, and privacy protection arising from third-party services are resolved between you and the provider;</li>
+          <li>The Company assumes no responsibility for the availability, accuracy, or legality of third-party services;</li>
+          <li>You should read and comply with the third-party provider's terms of service and privacy policy.</li>
+        </ul>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          四、第三方服务
+        </h2>
+        <p class="mb-4">
+          本软件支持用户接入第三方大模型服务（如 DeepSeek 等）。 <strong>请注意：</strong>
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>第三方服务的质量、稳定性、安全性由第三方服务商负责；</li>
+          <li>因使用第三方服务产生的费用、数据安全、隐私保护等问题，由您与第三方服务商自行协商解决；</li>
+          <li>本公司不对第三方服务的可用性、准确性、合法性承担任何责任；</li>
+          <li>您应自行了解并遵守第三方服务商的服务条款和隐私政策。</li>
+        </ul>
+      </div>
+
+      <!-- Section 5 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          5. Disclaimer
+        </h2>
+        <p class="mb-4">
+          To the extent permitted by law, the Company is not responsible for:
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>Service interruption or data loss due to force majeure;</li>
+          <li>Usage issues due to user reasons (improper operation, device failure, network issues, etc.);</li>
+          <li>Service interruption, data leakage, or other losses due to third-party providers;</li>
+          <li>Any indirect, incidental, or punitive damages from using this software.</li>
+        </ul>
+        <p class="mb-6">
+          This software is provided "as is" without any express or implied warranties.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          五、免责声明
+        </h2>
+        <p class="mb-4">
+          在法律允许的范围内，本公司对以下情况不承担责任：
+        </p>
+        <ul class="mb-6 list-disc list-inside ml-4 space-y-2">
+          <li>因不可抗力（如自然灾害、政府行为、网络故障等）导致的服务中断或数据丢失；</li>
+          <li>因用户自身原因（如操作不当、设备故障、网络问题等）导致的使用问题；</li>
+          <li>因第三方服务商的原因导致的服务中断、数据泄露或其他损失；</li>
+          <li>用户使用本软件产生的任何间接损失、附带损失或惩罚性赔偿。</li>
+        </ul>
+        <p class="mb-6">
+          本软件按"现状"提供，不提供任何明示或暗示的保证，包括但不限于适销性、特定用途适用性或非侵权性的保证。
+        </p>
+      </div>
+
+      <!-- Section 6 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          6. Privacy Protection
+        </h2>
+        <p class="mb-6">
+          We attach great importance to user privacy protection. Regarding how we collect, use, and protect your information, please refer to <a class="dark:text-primary-400 text-primary-600 hover:underline" href="/privacy">Shuo Privacy Policy</a>.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          六、隐私保护
+        </h2>
+        <p class="mb-6">
+          我们高度重视用户隐私保护。关于我们如何收集、使用和保护您的信息，请参阅 <a class="dark:text-primary-400 text-primary-600 hover:underline" href="/privacy">《说说输入法隐私政策》</a>。
+        </p>
+      </div>
+
+      <!-- Section 7 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          7. Terms Changes
+        </h2>
+        <p class="mb-4">
+          We reserve the right to modify these terms at any time. After changes, we will notify you through appropriate means (such as in-software prompts, website announcements, etc.).
+        </p>
+        <p class="mb-6">
+          If you do not agree to the changed terms, you may stop using this software. Continued use after changes constitutes acceptance.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          七、条款变更
+        </h2>
+        <p class="mb-4">
+          我们保留随时修改本服务条款的权利。条款变更后，我们会通过适当方式通知您（如软件内提示、官网公告等）。
+        </p>
+        <p class="mb-6">
+          如果您不同意变更后的条款，可以选择停止使用本软件。如果您在条款变更后继续使用本软件，即视为您已接受变更后的条款。
+        </p>
+      </div>
+
+      <!-- Section 8 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          8. Governing Law and Dispute Resolution
+        </h2>
+        <p class="mb-4">
+          The formation, effectiveness, interpretation, revision, supplement, termination, execution, and dispute resolution of these terms are governed by the laws of mainland China.
+        </p>
+        <p class="mb-6">
+          Any disputes regarding these terms or their execution shall be resolved through friendly negotiation. If negotiation fails, either party may file a lawsuit with a court of competent jurisdiction where the Company is located.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          八、法律适用与争议解决
+        </h2>
+        <p class="mb-4">
+          本条款的订立、生效、解释、修订、补充、终止、执行和争议解决均适用中华人民共和国大陆地区法律。
+        </p>
+        <p class="mb-6">
+          如就本条款内容或其执行发生任何争议，双方应友好协商解决；协商不成时，任何一方均可向本公司所在地有管辖权的人民法院提起诉讼。
+        </p>
+      </div>
+
+      <!-- Section 9 -->
+      <div x-show="$store.i18n.lang === 'en'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          9. Contact Us
+        </h2>
+        <p class="mb-6">
+          If you have any questions or suggestions about these terms, please feel free to contact us. We will provide assistance.
+        </p>
+      </div>
+      <div x-show="$store.i18n.lang === 'zh'" x-cloak>
+        <h2 class="mb-6 font-medium mt-12 text-2xl">
+          九、联系我们
+        </h2>
+        <p class="mb-6">
+          如您对本服务条款有任何疑问或建议，欢迎随时联系我们。我们将为您提供协助。
+        </p>
+      </div>
     </div>
   </div>
 </Layout>

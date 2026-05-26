@@ -7,11 +7,9 @@ import Layout from '../layouts/Layout.astro';
     <div class="px-4 lg:max-w-7xl lg:px-8 max-w-2xl mx-auto sm:px-6">
       <!-- Header -->
       <div class="flex flex-col gap-4 text-center pb-16 sm:pb-20">
-        <h1 class="font-medium tracking-tight sm:text-5xl text-4xl">
-          关于说说输入法
+        <h1 class="font-medium tracking-tight sm:text-5xl text-4xl" x-text="$store.i18n.t('about.title')">
         </h1>
-        <p class="text-base text-primary-950/60 dark:text-primary-200/60 max-w-2xl mx-auto">
-          一个开源、本地优先的语音输入法项目
+        <p class="text-base text-primary-950/60 dark:text-primary-200/60 max-w-2xl mx-auto" x-text="$store.i18n.t('about.subtitle')">
         </p>
       </div>
       
@@ -20,63 +18,62 @@ import Layout from '../layouts/Layout.astro';
         <!-- Project Intro -->
         <div class="flex flex-col gap-6 mb-16">
           <div class="flex items-center gap-4">
-            <img alt="说说输入法" class="h-16 w-16 rounded-2xl" src="/logo.png" />
+            <img x-bind:alt="$store.i18n.t('about.brand')" class="h-16 w-16 rounded-2xl" src="/logo.png" />
             <div>
-              <h2 class="font-medium text-2xl tracking-tight dark:text-primary-200 text-primary-950">说说输入法</h2>
-              <p class="text-sm text-primary-950/60 dark:text-primary-200/60">shuo - 开源语音输入法</p>
+              <h2 class="font-medium text-2xl tracking-tight dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.brand')"></h2>
+              <p class="text-sm text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('about.brandSub')"></p>
             </div>
           </div>
-          <p class="text-lg leading-relaxed dark:text-primary-200/70 text-primary-950/70">
-            说说输入法是一个开源、本地优先的语音输入法项目。目标是提供一套简单好用、可定制、隐私友好的语音输入体验，不绑定特定供应商，核心能力尽量留在本机完成。
+          <p class="text-lg leading-relaxed dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('about.intro')">
           </p>
         </div>
         
         <!-- Goals -->
         <div class="mb-16">
-          <h2 class="font-medium text-2xl tracking-tight mb-8 dark:text-primary-200 text-primary-950">项目目标</h2>
+          <h2 class="font-medium text-2xl tracking-tight mb-8 dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.goalsTitle')"></h2>
           <div class="grid gap-6 sm:grid-cols-2">
             <div class="flex flex-col gap-3 p-6 bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 rounded-2xl">
               <div class="flex items-center gap-3">
                 <svg class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                <h3 class="font-medium dark:text-primary-200 text-primary-950">本地优先</h3>
+                <h3 class="font-medium dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.goal1Title')"></h3>
               </div>
-              <p class="text-sm dark:text-primary-200/70 text-primary-950/70">核心能力在本地完成，语音数据不出设备，保护用户隐私。</p>
+              <p class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('about.goal1Desc')"></p>
             </div>
             <div class="flex flex-col gap-3 p-6 bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 rounded-2xl">
               <div class="flex items-center gap-3">
                 <svg class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path>
                 </svg>
-                <h3 class="font-medium dark:text-primary-200 text-primary-950">开源透明</h3>
+                <h3 class="font-medium dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.goal2Title')"></h3>
               </div>
-              <p class="text-sm dark:text-primary-200/70 text-primary-950/70">完全开源，代码公开透明，社区共同参与开发和改进。</p>
+              <p class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('about.goal2Desc')"></p>
             </div>
             <div class="flex flex-col gap-3 p-6 bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 rounded-2xl">
               <div class="flex items-center gap-3">
                 <svg class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path d="M11.42 15.17l-5.384-3.19a1.5 1.5 0 010-2.565l5.384-3.19a1.5 1.5 0 011.56 0l5.384 3.19a1.5 1.5 0 010 2.565l-5.384 3.19a1.5 1.5 0 01-1.56 0z" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                <h3 class="font-medium dark:text-primary-200 text-primary-950">可定制</h3>
+                <h3 class="font-medium dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.goal3Title')"></h3>
               </div>
-              <p class="text-sm dark:text-primary-200/70 text-primary-950/70">不绑定特定供应商，支持自定义 AI 服务商和识别模型。</p>
+              <p class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('about.goal3Desc')"></p>
             </div>
             <div class="flex flex-col gap-3 p-6 bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 rounded-2xl">
               <div class="flex items-center gap-3">
                 <svg class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                <h3 class="font-medium dark:text-primary-200 text-primary-950">简单好用</h3>
+                <h3 class="font-medium dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.goal4Title')"></h3>
               </div>
-              <p class="text-sm dark:text-primary-200/70 text-primary-950/70">提供简单直观的语音输入体验，让打字不再是唯一选择。</p>
+              <p class="text-sm dark:text-primary-200/70 text-primary-950/70" x-text="$store.i18n.t('about.goal4Desc')"></p>
             </div>
           </div>
         </div>
         
         <!-- Tech Stack -->
         <div class="mb-16">
-          <h2 class="font-medium text-2xl tracking-tight mb-8 dark:text-primary-200 text-primary-950">技术栈</h2>
+          <h2 class="font-medium text-2xl tracking-tight mb-8 dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.techTitle')"></h2>
           <div class="flex flex-col gap-4">
             <div class="flex items-center gap-4 p-4 bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 rounded-xl">
               <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-orange-500/10">
@@ -84,7 +81,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <div class="text-sm font-medium dark:text-primary-200 text-primary-950">Rust</div>
-                <div class="text-xs text-primary-950/60 dark:text-primary-200/60">核心语言，保证性能和安全</div>
+                <div class="text-xs text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('about.rust')"></div>
               </div>
             </div>
             <div class="flex items-center gap-4 p-4 bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 rounded-xl">
@@ -93,7 +90,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <div class="text-sm font-medium dark:text-primary-200 text-primary-950">本地 ASR</div>
-                <div class="text-xs text-primary-950/60 dark:text-primary-200/60">基于 Sherpa ONNX 的语音识别引擎</div>
+                <div class="text-xs text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('about.asr')"></div>
               </div>
             </div>
             <div class="flex items-center gap-4 p-4 bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 rounded-xl">
@@ -102,7 +99,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <div class="text-sm font-medium dark:text-primary-200 text-primary-950">VAD</div>
-                <div class="text-xs text-primary-950/60 dark:text-primary-200/60">语音活动检测，智能分段</div>
+                <div class="text-xs text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('about.vad')"></div>
               </div>
             </div>
             <div class="flex items-center gap-4 p-4 bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 rounded-xl">
@@ -111,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <div class="text-sm font-medium dark:text-primary-200 text-primary-950">LLM 集成</div>
-                <div class="text-xs text-primary-950/60 dark:text-primary-200/60">支持多种大语言模型服务</div>
+                <div class="text-xs text-primary-950/60 dark:text-primary-200/60" x-text="$store.i18n.t('about.llm')"></div>
               </div>
             </div>
           </div>
@@ -119,9 +116,9 @@ import Layout from '../layouts/Layout.astro';
         
         <!-- Workspace Structure -->
         <div class="mb-16">
-          <h2 class="font-medium text-2xl tracking-tight mb-8 dark:text-primary-200 text-primary-950">项目结构</h2>
+          <h2 class="font-medium text-2xl tracking-tight mb-8 dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.structureTitle')"></h2>
           <div class="bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 p-6 rounded-2xl">
-            <pre class="text-sm dark:text-primary-200/70 text-primary-950/70 overflow-x-auto"><code>shuo/
+            <pre class="text-sm dark:text-primary-200/70 text-primary-950/70 overflow-x-auto"><code x-cloak x-show="$store.i18n.lang === 'zh'">shuo/
 ├── crates/
 │   ├── shuo/            # 应用层，负责 UI、热键和音频编排
 │   ├── shuo-asr/        # 本地语音识别，重采样、VAD、分段
@@ -130,6 +127,15 @@ import Layout from '../layouts/Layout.astro';
 │   └── shuo-txt/        # 文本处理
 ├── docs/                # 项目文档
 ├── Cargo.toml           # Workspace 配置
+└── README.md</code><code x-cloak x-show="$store.i18n.lang === 'en'">shuo/
+├── crates/
+│   ├── shuo/            # Application layer, UI, hotkeys and audio orchestration
+│   ├── shuo-asr/        # Local speech recognition, resampling, VAD, segmentation
+│   ├── shuo-audio/      # Audio input, microphone access and capture
+│   ├── shuo-assets/     # Static assets, icons and images
+│   └── shuo-txt/        # Text processing
+├── docs/                # Project documentation
+├── Cargo.toml           # Workspace configuration
 └── README.md</code></pre>
           </div>
         </div>
@@ -137,9 +143,8 @@ import Layout from '../layouts/Layout.astro';
         <!-- CTA -->
         <div class="text-center">
           <div class="flex flex-col gap-6 items-center">
-            <h2 class="font-medium text-2xl tracking-tight dark:text-primary-200 text-primary-950">加入我们</h2>
-            <p class="text-base dark:text-primary-200/70 text-primary-950/70 max-w-lg">
-              说说输入法是一个社区驱动的开源项目，欢迎参与贡献，一起打造更好的语音输入法。
+            <h2 class="font-medium text-2xl tracking-tight dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('about.ctaTitle')"></h2>
+            <p class="text-base dark:text-primary-200/70 text-primary-950/70 max-w-lg" x-text="$store.i18n.t('about.ctaDesc')">
             </p>
             <div class="flex flex-col sm:flex-row gap-3">
               <a class="inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-base font-semibold transition bg-primary-900 dark:bg-primary-100 hover:bg-primary-800 dark:hover:bg-white border-transparent text-white dark:text-primary-950 shadow-lg hover:shadow-xl active:scale-95 hover:scale-105" href="https://github.com/shuo-us/shuo">
@@ -152,7 +157,7 @@ import Layout from '../layouts/Layout.astro';
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                提交反馈
+                <span x-text="$store.i18n.t('about.ctaFeedback')"></span>
               </a>
             </div>
           </div>
