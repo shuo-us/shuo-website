@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import favicon16 from '../assets/shuo_favicon_32x32.png';
+import favicon32 from '../assets/shuo_128x128.png';
+import appleTouchIcon from '../assets/shuo_128x128.png';
 
 interface Props {
   title?: string;
@@ -9,9 +12,9 @@ interface Props {
 }
 
 const {
-  title = "Shuo - Open Source Local Voice Input Method",
-  description = "Shuo, an open-source, local-first voice input method. No vendor lock-in, core capabilities run locally. Privacy-friendly. Supports macOS and Windows.",
-  keywords = "Shuo,voice input,local voice,AI input method,open source input method,macOS,Windows",
+  title = "Shuo - Professional Local Voice Input Method",
+  description = "Shuo, a professional, local-first voice input method. No vendor lock-in, core capabilities run locally. Privacy-friendly. Supports macOS and Windows.",
+  keywords = "Shuo,voice input,local voice,AI input method,professional input method,macOS,Windows",
   canonical = "https://shuo.us/"
 } = Astro.props;
 ---
@@ -22,10 +25,11 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <link href="/apple-touch-icon.png?v=3" rel="apple-touch-icon" sizes="180x180" />
-    <link href="/favicon-32x32.png?v=3" rel="icon" sizes="32x32" type="image/png" />
-    <link href="/favicon-16x16.png?v=3" rel="icon" sizes="16x16" type="image/png" />
-    <link href="/favicon.ico?v=3" rel="icon" />
+    <link href={appleTouchIcon.src} rel="apple-touch-icon" sizes="256x256" />
+    <link href={favicon32.src} rel="icon" sizes="32x32" type="image/png" />
+    <link href={favicon16.src} rel="icon" sizes="16x16" type="image/png" />
+    <link href="/shuo_favicon_32x32.ico" rel="icon" />
+    <link href="/shuo_desktop_icon.ico" rel="icon" sizes="256x256" type="image/x-icon" />
     <link href="/site.webmanifest" rel="manifest" />
     <meta name="generator" content={Astro.generator} />
     
@@ -55,20 +59,7 @@ const {
     
     <!-- Theme Script to Prevent Flash -->
     <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
-        }
-        return 'light';
-      })();
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      document.documentElement.classList.remove('dark');
     </script>
   </head>
   <body class="flex flex-col antialiased bg-primary-50 dark:bg-primary-950 dark:text-primary-200 min-h-screen pt-16 sm:pt-20 text-primary-950 transition duration-150">
@@ -84,15 +75,15 @@ const {
           </a>
         </div>
         
-        <div class="items-center flex -mr-2 sm:space-x-3 space-x-2">
-          <a class="text-base font-medium dark:text-primary-200 dark:hover:text-primary-400 text-primary-950 hover:text-primary-600 transition-colors hidden sm:inline-flex" href="/pricing" x-text="$store.i18n.t('header.pricing')">Pricing</a>
+        <div class="items-center flex -mr-2 sm:space-x-5 space-x-2">
+          <a class="text-base font-medium dark:text-primary-200 dark:hover:text-primary-400 text-primary-950 hover:text-primary-600 transition-colors hidden sm:inline-flex" href="/" x-text="$store.i18n.t('mobileMenu.home')">Home</a>
+          <a class="text-base font-medium dark:text-primary-200 dark:hover:text-primary-400 text-primary-950 hover:text-primary-600 transition-colors hidden sm:inline-flex" href="/about" x-text="$store.i18n.t('mobileMenu.about')">About</a>
+          <a class="text-base font-medium dark:text-primary-200 dark:hover:text-primary-400 text-primary-950 hover:text-primary-600 transition-colors hidden sm:inline-flex" href="/pricing" x-text="$store.i18n.t('mobileMenu.pricing')">Pricing</a>
+          <a class="text-base font-medium dark:text-primary-200 dark:hover:text-primary-400 text-primary-950 hover:text-primary-600 transition-colors hidden sm:inline-flex" href="/contact" x-text="$store.i18n.t('mobileMenu.contact')">Contact</a>
           <!-- Download button -->
-          <a class="items-center justify-center rounded-full font-semibold gap-2 transition bg-primary-900 dark:bg-primary-100 dark:focus-visible:ring-white dark:hover:bg-white dark:text-primary-950 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-900 focus:outline-none hidden hover:bg-primary-800 px-5 py-2.5 shadow-sm sm:inline-flex text-sm text-white" href="https://github.com/shuo-us/shuo/releases/latest" id="header-download-btn">
-            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path>
-            </svg>
-            <span id="header-download-text" x-text="$store.i18n.t('header.download')">Download</span>
-          </a>
+          <button type="button" class="items-center justify-center rounded-full font-semibold gap-2 transition bg-primary-900 dark:bg-primary-100 dark:focus-visible:ring-white dark:hover:bg-white dark:text-primary-950 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-900 focus:outline-none hidden hover:bg-primary-800 px-5 py-2.5 shadow-sm sm:inline-flex text-sm text-white cursor-default opacity-80" id="header-download-btn">
+            <span id="header-download-text" x-text="$store.i18n.t('header.download')">Coming Soon</span>
+          </button>
           
           <!-- Language Toggle -->
           <button class="items-center justify-center rounded-full inline-flex transition dark:hover:bg-primary-400/10 dark:text-primary-200 focus-visible:ring-2 focus:outline-none h-14 hover:bg-primary-500/10 ring-primary-950 text-primary-950 w-14 gap-1" type="button" @click="$store.i18n.toggle()" aria-label="Toggle language">
@@ -102,21 +93,10 @@ const {
             <span class="text-xs font-semibold" x-text="$store.i18n.lang === 'en' ? 'EN' : '中'">EN</span>
           </button>
           
-          <!-- Light/Dark Mode Switcher -->
-          <button class="items-center justify-center rounded-full inline-flex transition dark:hover:bg-primary-400/10 dark:text-primary-200 focus-visible:ring-2 focus:outline-none h-14 hover:bg-primary-500/10 ring-primary-950 text-primary-950 w-14" type="button" @click="$store.theme.toggle()">
-            <span class="sr-only" x-text="$store.i18n.t('header.toggleTheme')">Toggle theme mode</span>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" :class="{ 'hidden': !($store.theme.isDark) }" x-cloak>
-              <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
-            </svg>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" :class="{ 'hidden': $store.theme.isDark }">
-              <path d="M10 6C10 10.4183 13.5817 14 18 14C19.4386 14 20.7885 13.6203 21.9549 12.9556C21.4738 18.0302 17.2005 22 12 22C6.47715 22 2 17.5228 2 12C2 6.79948 5.9698 2.52616 11.0444 2.04507C10.3797 3.21152 10 4.56142 10 6ZM4 12C4 16.4183 7.58172 20 12 20C14.9654 20 17.5757 18.3788 18.9571 15.9546C18.6407 15.9848 18.3214 16 18 16C12.4772 16 8 11.5228 8 6C8 5.67863 8.01524 5.35933 8.04536 5.04293C5.62119 6.42426 4 9.03458 4 12ZM18.1642 2.29104L19 2.5V3.5L18.1642 3.70896C17.4476 3.8881 16.8881 4.4476 16.709 5.16417L16.5 6H15.5L15.291 5.16417C15.1119 4.4476 14.5524 3.8881 13.8358 3.70896L13 3.5V2.5L13.8358 2.29104C14.5524 2.1119 15.1119 1.5524 15.291 0.835829L15.5 0H16.5L16.709 0.835829C16.8881 1.5524 17.4476 2.1119 18.1642 2.29104ZM23.1642 7.29104L24 7.5V8.5L23.1642 8.70896C22.4476 8.8881 21.8881 9.4476 21.709 10.1642L21.5 11H20.5L20.291 10.1642C20.1119 9.4476 19.5524 8.8881 18.8358 8.70896L18 8.5V7.5L18.8358 7.29104C19.5524 7.1119 20.1119 6.5524 20.291 5.83583L20.5 5H21.5L21.709 5.83583C21.8881 6.5524 22.4476 7.1119 23.1642 7.29104Z"></path>
-            </svg>
-          </button>
-          
           <!-- Mobile Menu Toggle Button -->
           <button
             type="button"
-            class="text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 inline-flex h-14 w-14 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2"
+            class="text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 sm:hidden inline-flex h-14 w-14 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2"
             @click="open = !open"
             @mousedown="if (open) $event.preventDefault()"
             aria-controls="website-menu"
@@ -140,8 +120,8 @@ const {
           <div class="items-center justify-center dark:bg-primary-400/10 bg-primary-500/10 hidden lg:flex px-6 py-8 rounded-3xl">
             <p class="text-xl dark:text-primary-200/70 text-primary-950/70 italic leading-loose max-w-sm">
               <span class="font-medium" x-text="$store.i18n.t('header.brand')">Shuo</span>
-              <span x-show="$store.i18n.lang === 'en'" x-cloak> Turn voice into text. Open source, local-first, privacy in your hands.</span>
-              <span x-show="$store.i18n.lang === 'zh'" x-cloak> 把语音变成文字，开源、本地优先，隐私由你掌控。</span>
+              <span x-show="$store.i18n.lang === 'en'" x-cloak> Turn voice into text. Professional, local-first, privacy in your hands.</span>
+              <span x-show="$store.i18n.lang === 'zh'" x-cloak> 把语音变成文字，专业、本地优先，隐私由你掌控。</span>
             </p>
           </div>
           <nav class="flex flex-col dark:divide-primary-300/10 divide-primary-900/10 divide-y gap-1">
@@ -233,7 +213,7 @@ const {
                     </button>
                   </li>
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://v.douyin.com/meT5rx3eY4w/" rel="noopener noreferrer" target="_blank">
+                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://shuo.us" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline">抖音</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -241,7 +221,7 @@ const {
                     </a>
                   </li>
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://www.xiaohongshu.com/user/profile/67508770000000001c018a21" rel="noopener noreferrer" target="_blank">
+                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://shuo.us" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline">小红书</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -249,7 +229,7 @@ const {
                     </a>
                   </li>
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://b23.tv/AAkNqGf" rel="noopener noreferrer" target="_blank">
+                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://shuo.us" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline">哔哩哔哩</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -257,7 +237,7 @@ const {
                     </a>
                   </li>
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://x.com/shandianshuo" rel="noopener noreferrer" target="_blank">
+                     <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://shuo.us" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline">X</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -265,7 +245,7 @@ const {
                     </a>
                   </li>
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo" rel="noopener noreferrer" target="_blank">
+                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo-website" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline">Github</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -279,7 +259,7 @@ const {
                 <h3 class="text-sm dark:text-primary-200 text-primary-950 font-semibold tracking-wider uppercase" x-text="$store.i18n.t('footer.resources')">Resources</h3>
                 <ul class="flex flex-col gap-2.5" role="list">
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo/issues" rel="noopener noreferrer" target="_blank">
+                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo-website/issues" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline" x-text="$store.i18n.t('footer.feedback')">Feedback</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -287,7 +267,7 @@ const {
                     </a>
                   </li>
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo/projects" rel="noopener noreferrer" target="_blank">
+                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo-website/projects" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline" x-text="$store.i18n.t('footer.roadmap')">Roadmap</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -295,7 +275,7 @@ const {
                     </a>
                   </li>
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo/releases" rel="noopener noreferrer" target="_blank">
+                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo-website/releases" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline" x-text="$store.i18n.t('footer.changelog')">Changelog</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -303,7 +283,7 @@ const {
                     </a>
                   </li>
                   <li>
-                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo/wiki" rel="noopener noreferrer" target="_blank">
+                    <a class="items-center inline-flex focus-visible:outline focus-visible:outline-2 dark:focus-visible:outline-primary-200 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 focus-visible:outline-primary-950 gap-1.5 group hover:text-primary-950 rounded-md text-primary-950/70 text-sm transition-colors" href="https://github.com/shuo-us/shuo-website/wiki" rel="noopener noreferrer" target="_blank">
                       <span class="group-hover:underline" x-text="$store.i18n.t('footer.helpCenter')">Help Center</span>
                       <svg class="h-3.5 w-3.5 group-hover:opacity-100 opacity-50 transition-opacity" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
@@ -334,12 +314,12 @@ const {
           <div class="flex justify-center lg:items-start lg:justify-end">
             <div class="items-center flex flex-col gap-3">
               <img alt="WeChat QR" class="shadow-lg dark:ring-primary-200/10 h-40 ring-1 ring-primary-900/10 rounded-xl w-40" src="/wechat-qr.png" />
-              <p class="font-medium text-xs dark:text-primary-200/70 text-center text-primary-950/70">support@tanwei.co</p>
-              <a class="items-center inline-flex gap-1.5 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 hover:text-primary-950 text-primary-950/70 transition-colors text-xs" href="mailto:support@tanwei.co">
+              <p class="font-medium text-xs dark:text-primary-200/70 text-center text-primary-950/70">support@shuo.us</p>
+              <a class="items-center inline-flex gap-1.5 dark:hover:text-primary-200 dark:text-primary-200/70 duration-200 hover:text-primary-950 text-primary-950/70 transition-colors text-xs" href="mailto:support@shuo.us">
                 <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
                 </svg>
-                <span>support@tanwei.co</span>
+                <span>support@shuo.us</span>
               </a>
             </div>
           </div>
@@ -350,26 +330,7 @@ const {
             <div class="items-center flex justify-center dark:text-primary-200/60 text-primary-950/60 text-sm text-center">
               <p x-text="$store.i18n.t('footer.tagline')">Open source, local-first.</p>
             </div>
-            <div class="items-center flex justify-center dark:text-primary-200/60 text-primary-950/60 text-sm flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-4">
-              <p>
-                © 2026 
-                <a class="hover:text-primary-950 dark:hover:text-primary-200 transition-colors duration-200" href="https://tanwei.co" rel="noopener noreferrer" target="_blank">
-                  探未（武汉）科技有限公司
-                </a>
-              </p>
-              <span class="dark:text-primary-200/30 hidden sm:inline text-primary-950/30">·</span>
-              <a class="hover:text-primary-950 dark:hover:text-primary-200 transition-colors duration-200" href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">
-                鄂ICP备18021669号-8
-              </a>
-              <span class="dark:text-primary-200/30 hidden sm:inline text-primary-950/30">·</span>
-              <a class="hover:text-primary-950 dark:hover:text-primary-200 transition-colors duration-200" href="https://tsm.miit.gov.cn/" rel="noopener noreferrer" target="_blank">
-                增值电信业务经营许可证：鄂B2-20260561
-              </a>
-              <span class="dark:text-primary-200/30 hidden sm:inline text-primary-950/30">·</span>
-              <a class="hover:text-primary-950 dark:hover:text-primary-200 transition-colors duration-200" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42018502008528" rel="noopener noreferrer" target="_blank">
-                鄂公网安备42018502008528号
-              </a>
-            </div>
+
           </div>
         </div>
       </div>
@@ -481,16 +442,7 @@ const {
         Alpine.plugin(collapse);
         
         Alpine.store('theme', {
-          isDark: false,
-          init() {
-            this.isDark = typeof localStorage !== 'undefined' && localStorage.getItem('theme')
-              ? localStorage.getItem('theme') === 'dark'
-              : window.matchMedia('(prefers-color-scheme: dark)').matches;
-          },
-          toggle() {
-            this.isDark = !this.isDark;
-            localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
-          }
+          isDark: false
         });
         
         Alpine.store('i18n', {
@@ -517,6 +469,7 @@ const {
         });
         
         window.Alpine = Alpine;
+        Alpine.start();
       }
     </script>
   </body>

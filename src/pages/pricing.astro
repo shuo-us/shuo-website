@@ -31,8 +31,8 @@ import Layout from '../layouts/Layout.astro';
             </p>
           </div>
           
-          <a class="w-full inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3.5 text-base font-semibold transition border-primary-200 dark:border-primary-700 text-primary-950 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/50 active:scale-95 hover:scale-105" href="https://github.com/shuo-us/shuo/releases/latest" x-text="$store.i18n.t('pricing.freeBtn')">
-          </a>
+          <button type="button" class="w-full inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3.5 text-base font-semibold transition border-primary-200 dark:border-primary-700 text-primary-950 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/50 active:scale-95 hover:scale-105 cursor-default opacity-80" x-text="$store.i18n.t('pricing.freeBtn')">
+          </button>
           
           <div class="flex flex-col gap-4">
             <p class="text-sm font-medium dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('pricing.freeFeatures')"></p>
@@ -98,8 +98,8 @@ import Layout from '../layouts/Layout.astro';
             </p>
           </div>
           
-          <a class="w-full inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3.5 text-base font-semibold transition bg-primary-900 dark:bg-primary-100 hover:bg-primary-800 dark:hover:bg-white border-transparent text-white dark:text-primary-950 shadow-lg hover:shadow-xl active:scale-95 hover:scale-105" href="https://github.com/shuo-us/shuo/releases/latest" x-text="$store.i18n.t('pricing.proBtn')">
-          </a>
+          <button type="button" class="w-full inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3.5 text-base font-semibold transition bg-primary-900 dark:bg-primary-100 hover:bg-primary-800 dark:hover:bg-white border-transparent text-white dark:text-primary-950 shadow-lg hover:shadow-xl active:scale-95 hover:scale-105 cursor-default opacity-80" x-text="$store.i18n.t('pricing.proBtn')">
+          </button>
           
           <div class="flex flex-col gap-4">
             <p class="text-sm font-medium dark:text-primary-200 text-primary-950" x-text="$store.i18n.t('pricing.proFeatures')"></p>
@@ -301,8 +301,8 @@ import Layout from '../layouts/Layout.astro';
           <div class="bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 p-6 rounded-2xl">
             <h3 class="font-medium dark:text-primary-200 text-primary-950 mb-2" x-text="$store.i18n.t('pricing.faq1Q')"></h3>
             <p class="text-sm dark:text-primary-200/70 text-primary-950/70">
-              <span x-show="$store.i18n.lang === 'en'" x-cloak>Yes, Shuo is completely open source and free. The Pro version offers cloud recognition and other advanced features for a monthly fee. You can freely choose which version to use.</span>
-              <span x-show="$store.i18n.lang === 'zh'" x-cloak>是的，说说输入法是完全开源免费的。Pro 版提供云端识别等高级功能，按月付费。你可以自由选择使用哪个版本。</span>
+              <span x-show="$store.i18n.lang === 'en'" x-cloak>Yes, Shuo is free and professional. The Pro version offers cloud recognition and other advanced features for a monthly fee. You can freely choose which version to use.</span>
+              <span x-show="$store.i18n.lang === 'zh'" x-cloak>是的，说说输入法是免费且专业的。Pro 版提供云端识别等高级功能，按月付费。你可以自由选择使用哪个版本。</span>
             </p>
           </div>
           <div class="bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 p-6 rounded-2xl">
@@ -329,8 +329,8 @@ import Layout from '../layouts/Layout.astro';
           <div class="bg-white border border-primary-900/10 dark:bg-primary-950 dark:border-primary-200/10 p-6 rounded-2xl">
             <h3 class="font-medium dark:text-primary-200 text-primary-950 mb-2" x-text="$store.i18n.t('pricing.faq5Q')"></h3>
             <p class="text-sm dark:text-primary-200/70 text-primary-950/70">
-              <span x-show="$store.i18n.lang === 'en'" x-cloak>You can cancel anytime. After cancellation, you can still use all Open Source features.</span>
-              <span x-show="$store.i18n.lang === 'zh'" x-cloak>可以随时取消订阅。取消后，你仍然可以使用开源版的所有功能。</span>
+              <span x-show="$store.i18n.lang === 'en'" x-cloak>You can cancel anytime. After cancellation, you can still use all Free features.</span>
+              <span x-show="$store.i18n.lang === 'zh'" x-cloak>可以随时取消订阅。取消后，你仍然可以使用免费版的所有功能。</span>
             </p>
           </div>
         </div>

@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
 ---
 
-<Layout title="说说输入法，开源本地语音输入法">
+<Layout title="说说输入法，专业本地语音输入法">
   <section class="relative overflow-hidden pb-14 pt-20 sm:pb-24 sm:pt-24" data-astro-cid-ewxirvlt>
     <!-- Background blur decoration -->
     <div class="overflow-hidden -top-40 -z-10 absolute blur-3xl inset-x-0 sm:-top-80 transform-gpu" data-astro-cid-ewxirvlt aria-hidden="true">
@@ -20,23 +21,21 @@ import Layout from '../layouts/Layout.astro';
               </svg>
               <span x-text="$store.i18n.t('index.badge')">本地优先</span>
             </span>
+
             <h1 class="bg-clip-text bg-gradient-to-br dark:from-white dark:to-primary-400 dark:via-primary-200 font-semibold from-primary-950 lg:text-7xl md:text-6xl pb-1 sm:text-5xl text-4xl text-transparent to-primary-950 tracking-tight via-primary-700" data-astro-cid-ewxirvlt>
               <span x-text="$store.i18n.t('index.title')">开口说话，自然输入</span>
             </h1>
             <p class="leading-relaxed dark:text-primary-200/70 text-primary-950/70 max-w-2xl md:text-2xl sm:text-xl text-lg" data-astro-cid-ewxirvlt>
-              <span x-text="$store.i18n.t('index.subtitle')">开源、本地优先的语音输入法，不绑定供应商，隐私由你掌控</span>
+              <span x-text="$store.i18n.t('index.subtitle')">专业、本地优先的语音输入法，不绑定供应商，隐私由你掌控</span>
             </p>
           </div>
           
           <!-- Download Section -->
           <div class="items-center flex flex-col gap-4 pt-2 sm:flex-row sm:w-auto w-full" data-astro-cid-ewxirvlt id="download-buttons">
-            <a class="items-center justify-center rounded-full font-semibold gap-2 border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 inline-flex px-8 sm:w-auto text-base w-full active:scale-95 hover:scale-105 py-4 transition-all bg-primary-900 dark:bg-primary-100 hover:bg-primary-800 dark:hover:bg-white border-transparent text-white dark:text-primary-950 shadow-lg hover:shadow-xl" href="https://github.com/shuo-us/shuo/releases/latest" data-astro-cid-ewxirvlt>
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-astro-cid-ewxirvlt>
-                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path>
-              </svg>
-              <span x-text="$store.i18n.t('index.download')">下载使用</span>
-            </a>
-            <a class="items-center justify-center rounded-full font-semibold gap-2 border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 inline-flex px-8 sm:w-auto text-base w-full active:scale-95 hover:scale-105 py-4 transition-all border-primary-200 dark:border-primary-700 text-primary-950 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/50" href="https://github.com/shuo-us/shuo" data-astro-cid-ewxirvlt>
+            <button type="button" class="items-center justify-center rounded-full font-semibold gap-2 border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 inline-flex px-8 sm:w-auto text-base w-full active:scale-95 hover:scale-105 py-4 transition-all bg-primary-900 dark:bg-primary-100 hover:bg-primary-800 dark:hover:bg-white border-transparent text-white dark:text-primary-950 shadow-lg hover:shadow-xl cursor-default opacity-80" data-astro-cid-ewxirvlt>
+              <span x-text="$store.i18n.t('index.download')">Coming Soon</span>
+            </button>
+            <a class="items-center justify-center rounded-full font-semibold gap-2 border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 inline-flex px-8 sm:w-auto text-base w-full active:scale-95 hover:scale-105 py-4 transition-all border-primary-200 dark:border-primary-700 text-primary-950 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/50" href="https://github.com/shuo-us/shuo-website" data-astro-cid-ewxirvlt>
               <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-astro-cid-ewxirvlt>
                 <path d="M12 1L21 5V11C21 16.55 17.16 21.74 12 23C6.84 21.74 3 16.55 3 11V5L12 1ZM12 3.18L5 6.3V11.22C5 15.54 7.84 19.85 12 20.97C16.16 19.85 19 15.54 19 11.22V6.3L12 3.18Z"></path>
               </svg>
@@ -321,7 +320,7 @@ import Layout from '../layouts/Layout.astro';
                       <path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-ludp2yfi></path>
                     </svg>
                     <span class="dark:text-primary-200/70 text-primary-950/70" data-astro-cid-ludp2yfi>
-                      <span x-text="$store.i18n.t('index.openAuditable')">开源透明，可审计</span>
+                      <span x-text="$store.i18n.t('index.openAuditable')">专业可靠，可审计</span>
                     </span>
                   </div>
                 </div>
@@ -330,7 +329,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
         
-        <!-- Section 4: Open Source -->
+        <!-- Section 4: Professional Experience -->
         <div class="items-center gap-8 grid lg:gap-16 lg:grid-cols-2 scroll-mt-24" data-astro-cid-ludp2yfi id="open-source">
           <div class="items-center flex justify-center dark:hover:bg-primary-400/10 hover:bg-primary-500/10 bg-primary-500/5 dark:bg-primary-400/5 group min-h-[300px] p-6 rounded-2xl sm:p-8 transition-colors lg:order-1 order-2" data-astro-cid-ludp2yfi>
             <div class="w-full duration-500 group-hover:scale-[1.02] transition-transform max-w-md space-y-4" data-astro-cid-ludp2yfi>
@@ -343,7 +342,7 @@ import Layout from '../layouts/Layout.astro';
                   </div>
                   <div class="flex-1 min-w-0" data-astro-cid-ludp2yfi>
                     <div class="text-sm font-medium dark:text-primary-200 text-primary-950" data-astro-cid-ludp2yfi>
-                      <span x-text="$store.i18n.t('index.fullyOpen')">完全开源</span>
+                      <span x-text="$store.i18n.t('index.fullyOpen')">专业可靠</span>
                     </div>
                     <div class="text-xs dark:text-primary-200/50 text-primary-950/50" data-astro-cid-ludp2yfi>
                       <span x-text="$store.i18n.t('index.fullyOpenDesc')">代码公开透明</span>
@@ -407,10 +406,10 @@ import Layout from '../layouts/Layout.astro';
             </div>
             <div class="flex flex-col gap-4" data-astro-cid-ludp2yfi>
               <h3 class="font-medium dark:text-primary-200 text-primary-950 text-3xl tracking-tight" data-astro-cid-ludp2yfi>
-                <span x-text="$store.i18n.t('index.featOpenTitle')">开源自由</span>
+                <span x-text="$store.i18n.t('index.featOpenTitle')">专业体验</span>
               </h3>
               <p class="leading-relaxed dark:text-primary-200/70 text-primary-950/70 text-base" data-astro-cid-ludp2yfi>
-                <span x-text="$store.i18n.t('index.featOpenDesc')">完全开源，社区驱动。自由定制、自由部署，不受供应商绑定。欢迎参与贡献，一起打造更好的语音输入法。</span>
+                <span x-text="$store.i18n.t('index.featOpenDesc')">专业可靠，社区驱动。自由定制、自由部署，不受供应商绑定。欢迎参与贡献，一起打造更好的语音输入法。</span>
               </p>
             </div>
           </div>
@@ -507,17 +506,14 @@ import Layout from '../layouts/Layout.astro';
             <span x-text="$store.i18n.t('index.ctaTitle')">开口说话，自然输入</span>
           </h2>
           <p class="text-base dark:text-primary-200/70 text-primary-950/70 max-w-2xl mx-auto">
-            <span x-text="$store.i18n.t('index.ctaDesc')">开源、本地优先的语音输入法，让打字不再是唯一选择</span>
+            <span x-text="$store.i18n.t('index.ctaDesc')">专业、本地优先的语音输入法，让打字不再是唯一选择</span>
           </p>
         </div>
         <div class="items-center flex flex-col sm:flex-row sm:w-auto w-full gap-3">
-          <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border px-8 py-3.5 text-base font-semibold transition bg-primary-900 dark:bg-primary-100 hover:bg-primary-800 dark:hover:bg-white border-transparent text-white dark:text-primary-950 shadow-lg hover:shadow-xl active:scale-95 hover:scale-105" href="https://github.com/shuo-us/shuo/releases/latest">
-            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path>
-            </svg>
-            <span x-text="$store.i18n.t('index.ctaDownload')">下载使用</span>
-          </a>
-          <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border px-8 py-3.5 text-base font-semibold transition border-primary-200 dark:border-primary-700 text-primary-950 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/50 active:scale-95 hover:scale-105" href="https://github.com/shuo-us/shuo">
+          <button type="button" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border px-8 py-3.5 text-base font-semibold transition bg-primary-900 dark:bg-primary-100 hover:bg-primary-800 dark:hover:bg-white border-transparent text-white dark:text-primary-950 shadow-lg hover:shadow-xl active:scale-95 hover:scale-105 cursor-default opacity-80">
+            <span x-text="$store.i18n.t('index.ctaDownload')">Coming Soon</span>
+          </button>
+          <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border px-8 py-3.5 text-base font-semibold transition border-primary-200 dark:border-primary-700 text-primary-950 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/50 active:scale-95 hover:scale-105" href="https://github.com/shuo-us/shuo-website">
             <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 1L21 5V11C21 16.55 17.16 21.74 12 23C6.84 21.74 3 16.55 3 11V5L12 1ZM12 3.18L5 6.3V11.22C5 15.54 7.84 19.85 12 20.97C16.16 19.85 19 15.54 19 11.22V6.3L12 3.18Z"></path>
             </svg>

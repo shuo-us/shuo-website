@@ -1,43 +1,56 @@
-# Astro Starter Kit: Minimal
+# Shuo - Professional Local Voice Input Method
 
-```sh
-npm create astro@latest -- --template minimal
+**[中文文档](./README.zh-CN.md)**
+
+A professional, local-first voice input method for macOS and Windows. No vendor lock-in, core capabilities run locally. Privacy-friendly.
+
+## Features
+
+- **Local Voice Recognition** - Voice data never leaves your device
+- **Custom AI Providers** - Supports 10+ AI providers, freely configurable
+- **Auto-structuring** - Automatic text formatting and paragraph organization
+- **Colloquial Filtering** - Smart filtering of filler words and repetitions
+- **Privacy First** - Zero cloud data collection, API keys stored locally
+- **Professionally Crafted** - Community-driven, auditable code
+
+## Tech Stack
+
+- **Core**: Rust
+- **ASR Engine**: Sherpa ONNX
+- **Frontend**: Astro, Tailwind CSS, Alpine.js
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
-├── public/
+├── public/           # Static assets
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/   # Astro components
+│   ├── i18n/         # Translations (EN/ZH)
+│   ├── layouts/      # Page layouts
+│   ├── pages/        # Route pages
+│   └── styles/       # Global styles
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Related Links
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- Website: [shuo.us](https://shuo.us)
+- GitHub: [shuo-us/shuo-website](https://github.com/shuo-us/shuo-website)
 
-Any static assets, like images, can be placed in the `public/` directory.
+## License
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Apache 2.0
